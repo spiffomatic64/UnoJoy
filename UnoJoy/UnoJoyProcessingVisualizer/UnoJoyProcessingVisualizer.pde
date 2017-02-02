@@ -126,7 +126,7 @@ void controlEvent(ControlEvent theEvent) {
   if (theEvent.isGroup()) 
   {
     //Store the value of which box was selected, we will use this to acces a string (char array).
-    float S = theEvent.group().value();
+    float S = theEvent.getValue();
     //Since the list returns a float, we need to convert it to an int. For that we us the int() function.
     Ss = int(S);
     //With this code, its a one time setup, so we state that the selection of port has been done. You could modify the code to stop the serial connection and establish a new one.
@@ -153,13 +153,13 @@ void customize(DropdownList ddl) {
   //Set the height of the bar itself.
   ddl.setBarHeight(15);
   //Set the lable of the bar when nothing is selected.
-  ddl.captionLabel().set("Select COM port");
+  ddl.setCaptionLabel("Select COM port");
   //Set the top margin of the lable.
-  ddl.captionLabel().style().marginTop = 3;
+  ddl.getCaptionLabel().getStyle().marginTop = 3;
   //Set the left margin of the lable.
-  ddl.captionLabel().style().marginLeft = 3;
+  ddl.getCaptionLabel().getStyle().marginLeft = 3;
   //Set the top margin of the value selected.
-  ddl.valueLabel().style().marginTop = 3;
+  ddl.getValueLabel().getStyle().marginTop = 3;
   //Store the Serial ports in the string comList (char array).
   comList = SerialPort.list();
   if (Serial.list().length == 0)
@@ -451,5 +451,3 @@ void turnAllOff(){
   dpadRightOn = 0;
   dpadDownOn = 0;
 }
-
-
